@@ -1,27 +1,18 @@
 "use client";
 
-import React, { useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import { SectionContainer } from "@/components/shared/SectionContainer";
 import { AskEngineHeader } from "@/components/ask/AskEngineHeader";
-import { SearchInterface } from "@/components/ask/SearchInterface";
-import { DecisionFrameworkPreview } from "@/components/ask/DecisionFrameworkPreview";
+import { ChatContainer } from "@/components/chat/ChatContainer";
 
 function AskPageContent() {
-  const [selectedPrompt, setSelectedPrompt] = useState("");
-
   return (
     <SectionContainer variant="default" className="py-8 sm:py-12">
       {/* Page Header */}
       <AskEngineHeader />
 
-      {/* Interactive Search & Prompt Selector */}
-      <SearchInterface
-        onSelectPrompt={setSelectedPrompt}
-        activePrompt={selectedPrompt}
-      />
-
-      {/* Decision Framework Output Preview */}
-      <DecisionFrameworkPreview query={selectedPrompt} />
+      {/* Interactive AI Advisor Chat Engine */}
+      <ChatContainer />
     </SectionContainer>
   );
 }
@@ -32,7 +23,7 @@ export default function AskPage() {
       fallback={
         <SectionContainer variant="default" className="py-16 text-center">
           <div className="animate-pulse text-sm text-slate-500 font-medium">
-            Loading Property Intelligence...
+            Initializing Property Intelligence Advisor...
           </div>
         </SectionContainer>
       }
